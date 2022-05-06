@@ -1,9 +1,4 @@
-import net.lingala.zip4j.core.ZipFile;
-import net.lingala.zip4j.model.ZipParameters;
-import net.lingala.zip4j.util.Zip4jConstants;
-
 import javax.swing.*;
-import java.io.File;
 
 
 public class Main {
@@ -17,12 +12,6 @@ public class Main {
         GUIForm form = new GUIForm();
         frame.add(form.getRootPanel());
         frame.setVisible(true);
-
-
-
-
-
-
 
 /*
         String path = "C:/Users/Anton/Desktop/";
