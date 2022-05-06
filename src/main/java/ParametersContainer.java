@@ -7,6 +7,7 @@ public class ParametersContainer {
 
     public static ZipParameters getParameters() {
         if (parameters == null) {
+            parameters = new ZipParameters();
             parameters
                     .setCompressionMethod(Zip4jConstants.COMP_DEFLATE);
             parameters

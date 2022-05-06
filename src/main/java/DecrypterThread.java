@@ -23,15 +23,21 @@ public class DecrypterThread extends Thread
     @Override
     public void run() {
         onStart();
+        boolean isErrors = false;
         try {
             String outputPath = getOutputPath();
             ZipFile zipFile = new ZipFile(file);
             zipFile.setPassword(password);
             zipFile.extractAll(outputPath);
         } catch (Exception ex) {
-            form.showWarning(ex.getMessage());
+            if (ex.getMessage().indexOf("Wrong password") > 0) {
+                form.showWarning("Неправильный пароль");
+                isErrors = true;
+            } else {
+                form.showWarning(ex.getMessage());
+            }
         }
-        onFinish();
+        onFinish(isErrors);
     }
 
     private String getOutputPath() {
@@ -49,8 +55,10 @@ public class DecrypterThread extends Thread
         form.setButtonsEnabled(false);
     }
 
-    private void onFinish() {
+    private void onFinish(boolean isErrors) {
         form.setButtonsEnabled(true);
-        form.showFinished();
+        if (!isErrors) {
+            form.showFinished();
+        }
     }
 }

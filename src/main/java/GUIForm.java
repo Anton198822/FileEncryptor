@@ -98,7 +98,20 @@ public class GUIForm {
                 if (selectedFile == null) {
                     return;
                 }
-                String password = JOptionPane.showInputDialog("Введите пароль: ");
+           //     String password = JOptionPane.showInputDialog("Введите пароль: ");
+                JPanel panel = new JPanel();
+                JLabel label = new JLabel("Введите пароль: ");
+                JPasswordField pass = new JPasswordField(10);
+                panel.add(label);
+                panel.add(pass);
+                String[] options = new String[] {"OK", "Cancel"};
+                int option = JOptionPane.showOptionDialog(null
+                        , panel, "Ввод пароля", JOptionPane.NO_OPTION
+                , JOptionPane.PLAIN_MESSAGE, null, options, options[1]);
+                String password = null;
+                if (option == 0) {
+                    password = new String(pass.getPassword());
+                }
                 if (password == null || password.length() == 0) {
                     showWarning("Пароль не указан!");
                     return;
