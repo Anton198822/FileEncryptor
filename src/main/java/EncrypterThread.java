@@ -7,6 +7,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class EncrypterThread extends Thread {
     private GUIForm form;
     private File file;

@@ -12,7 +12,6 @@ public class Main {
         GUIForm form = new GUIForm();
         frame.add(form.getRootPanel());
         frame.setVisible(true);
-
 /*
         String path = "C:/Users/Anton/Desktop/";
         ZipParameters parameters;

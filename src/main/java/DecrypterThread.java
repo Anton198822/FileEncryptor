@@ -2,13 +2,12 @@ import net.lingala.zip4j.core.ZipFile;
 
 import java.io.File;
 
-public class DecrypterThread extends Thread
-{
+public class DecrypterThread extends Thread {
     private GUIForm form;
     private File file;
     private String password;
 
-    public DecrypterThread (GUIForm form) {
+    public DecrypterThread(GUIForm form) {
         this.form = form;
     }
 
